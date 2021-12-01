@@ -3,7 +3,7 @@ import datetime as dt
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python_operator import PythonOperator
-
+from airflow.utils.dates import days_ago
 
 def greet():
 	now = dt.datetime.now()
@@ -15,7 +15,8 @@ def respond():
 
 default_args = {
     'owner': 'airflow',
-    'start_date': dt.datetime(2018, 9, 24, 10, 00, 00),
+    #'start_date': dt.datetime(2018, 9, 24, 10, 00, 00),
+    'start_date': days_ago(2),
     'concurrency': 1,
     'retries': 0
 }
