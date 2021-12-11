@@ -29,7 +29,7 @@ def retrieve_data_customers():
 
 def retrieve_data_categories():
     
-    sql_categories='SELECT * FROM categories'
+    sql_categories='SELECT * FROM region'
     select_table_cat = PostgresHook(postgres_conn_id='postgresql_db')
     connection_cat = select_table_cat.get_conn()
     cursor_cat = connection_cat.cursor()
